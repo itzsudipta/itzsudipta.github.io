@@ -16,12 +16,12 @@
 
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://itzsudipta.github.io/">
+    <meta property="og:url"
+        content="https://itzs[[5](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQH8faCW-8EOUMncuMObLb2YpUVThQMRSDu-ZmHNG-GFh1c9FSTfMl2PjoIfiRfLtv3cQWka1RVu1wPeHTPzO4N7EmwhKQXbzPICl2nnxFBGtwD5zGF3HlBN-Xse1jKPpHKaSWKnibJHbozLdmY7X7tysg%3D%3D)]udipta.github.io/">
     <meta property="og:title" content="Sudipta Sarkar | Python & ML Developer">
     <meta property="og:description"
         content="Building intelligent web applications with Python and Machine Learning. Turning complex data into simple, scalable solutions.">
-    <meta property="og:image"
-        content="https://github.com/i[[5](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQH8faCW-8EOUMncuMObLb2YpUVThQMRSDu-ZmHNG-GFh1c9FSTfMl2PjoIfiRfLtv3cQWka1RVu1wPeHTPzO4N7EmwhKQXbzPICl2nnxFBGtwD5zGF3HlBN-Xse1jKPpHKaSWKnibJHbozLdmY7X7tysg%3D%3D)]tzsudipta.png">
+    <meta property="og:image" content="https://github.com/itzsudipta.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -72,6 +72,14 @@
     </script>
 
     <style>
+        /* CRITICAL FIX: Forces no horizontal scroll on mobile immediately */
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -103,6 +111,8 @@
     </style>
 </head>
 
+<!-- Added overflow-x-hidden to body class as a secondary measure -->
+
 <body class="bg-light text-slate-800 dark:bg-dark dark:text-slate-200 transition-colors duration-300 overflow-x-hidden">
 
     <!-- Navigation -->
@@ -111,7 +121,8 @@
         <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
-                <div class="flex-shrink-0 font-bold text-2xl tracking-tight">
+                <div
+                    class="flex-shrink-0 font-bold text-2xl tracking-tig[[6](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQG4-Hov7N50WYVKi_OIWFfoPw2DmuDZYoYMs-0UgFDzbBeIrVkbewhAkubVeDoAOVeiQVuUvjny3vmTss2ojmAFTAUqfvwGwJ0JYnQfF1QISpQ7yXrM7njIHhkgMwchwXlWKCVfYYLEpU2p3fgVEXDh0phWTu9RkHEN_ablgntXH--ORrquPoTjZFj_z4A_habZ0ZvZaw%3D%3D)]ht">
                     <span class="text-primary">&lt;</span>Sudipta<span
                         class="text-slate-800 dark:text-white">Sarkar</span><span class="text-secondary">/&gt;</span>
                 </div>
@@ -123,8 +134,7 @@
                     <div class="hidden md:flex space-x-8 items-center">
                         <a href="#about" class="hover:text-primary transition-colors">About</a>
                         <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
-                        <a href="#projects[[6](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQG4-Hov7N50WYVKi_OIWFfoPw2DmuDZYoYMs-0UgFDzbBeIrVkbewhAkubVeDoAOVeiQVuUvjny3vmTss2ojmAFTAUqfvwGwJ0JYnQfF1QISpQ7yXrM7njIHhkgMwchwXlWKCVfYYLEpU2p3fgVEXDh0phWTu9RkHEN_ablgntXH--ORrquPoTjZFj_z4A_habZ0ZvZaw%3D%3D)]"
-                            class="hover:text-primary transition-colors">Projects</a>
+                        <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
                         <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
                     </div>
 
@@ -158,7 +168,7 @@
                     class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Projects</a>
                 <a href="#contact"
                     class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
-                <!-- Ensure your PDF file is named 'resume.pdf' -->
+                <!-- UNIFIED FILENAME: resume.pdf -->
                 <a href="./resume.pdf" download
                     class="block px-3 py-2 rounded-md text-base font-medium text-primary font-semibold hover:bg-slate-100 dark:hover:bg-slate-800">Download
                     CV</a>
@@ -167,12 +177,14 @@
     </nav>
 
     <!-- Hero Section -->
+    <!-- Added overflow-hidden to ensure blobs don't spill out -->
     <section id="home"
         class="min-h-screen flex items-center justify-center pt-32 pb-20 md:pt-16 relative overflow-hidden">
 
         <!-- Background Decoration -->
+        <!-- Removed translate-x-12 to prevent it from pushing outside screen on mobile -->
         <div
-            class="absolute top-0 right-0 -translate-y-12 translate-x-12 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none">
+            class="absolute top-0 right-0 -translate-y-12 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none transform translate-x-1/4">
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -207,7 +219,8 @@
                             class="px-7 py-3.5 border border-slate-300 dark:border-slate-600 hover:border-primary hover:text-primary dark:text-white dark:hover:text-primary rounded-lg font-medium transition-all flex items-center justify-center">
                             Contact Me
                         </a>
-                        <a href="SudiptaSarkarResume.pdf" download="Sudipta_Sarkar_CV"
+                        <!-- UNIFIED FILENAME: resume.pdf -->
+                        <a href="./resume.pdf" download="Sudipta_Sarkar_CV"
                             class="px-7 py-3.5 bg-slate-800 hover:bg-slate-700 dark:bg-white dark:hover:bg-slate-200 text-white dark:text-slate-900 rounded-lg font-medium transition-all shadow-lg flex items-center justify-center">
                             <span>Download CV</span>
                             <i class="fas fa-download ml-2"></i>
@@ -324,11 +337,14 @@
                     <h3 class="text-xl font-bold mb-4 text-slate-800 dark:text-white">Languages & Frameworks</h3>
                     <ul class="space-y-4 text-slate-600 dark:text-slate-400 flex-grow">
                         <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>
-                            <span>Python (Advanced)</span></li>
+                            <span>Python (Advanced)</span>
+                        </li>
                         <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>
-                            <span>FastAPI</span></li>
+                            <span>FastAPI</span>
+                        </li>
                         <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>
-                            <span>Java</span></li>
+                            <span>Java</span>
+                        </li>
                     </ul>
                 </div>
                 <!-- Card 2 -->
@@ -341,11 +357,14 @@
                     <h3 class="text-xl font-bold mb-4 text-slate-800 dark:text-white">Databases & Storage</h3>
                     <ul class="space-y-4 text-slate-600 dark:text-slate-400 flex-grow">
                         <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>
-                            <span>PostgreSQL</span></li>
+                            <span>PostgreSQL</span>
+                        </li>
                         <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>
-                            <span>MySQL</span></li>
+                            <span>MySQL</span>
+                        </li>
                         <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>
-                            <span>Database Design</span></li>
+                            <span>Database Design</span>
+                        </li>
                     </ul>
                 </div>
                 <!-- Card 3 -->
@@ -360,11 +379,14 @@
                         <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i> <span>Git
                                 & GitHub</span></li>
                         <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>
-                            <span>Docker</span></li>
+                            <span>Docker</span>
+                        </li>
                         <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>
-                            <span>Pandas / NumPy</span></li>
+                            <span>Pandas / NumPy</span>
+                        </li>
                         <li class="flex items-center"><i class="fas fa-check-circle text-secondary mr-3"></i>
-                            <span>PyTest</span></li>
+                            <span>PyTest</span>
+                        </li>
                     </ul>
                 </div>
             </div>
