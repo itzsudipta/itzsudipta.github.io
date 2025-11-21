@@ -74,24 +74,27 @@
         /* --- CROSS-BROWSER CONSISTENCY FIXES --- */
 
         html {
-            /* 1. Prevent text inflation on mobile 'Desktop Mode' (Fixes Firefox/Chrome diffs) */
+            /* Prevent text inflation on mobile 'Desktop Mode' */
             -webkit-text-size-adjust: 100%;
             -moz-text-size-adjust: 100%;
             text-size-adjust: 100%;
 
-            /* 2. Consistent Font Rendering */
+            /* Consistent Font Rendering */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
 
-        /* 3. Universal Box Sizing */
+        /* Universal Box Sizing */
         *,
         *::before,
         *::after {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        /* 4. Horizontal Scroll Protection */
+        /* Horizontal Scroll Protection */
         html,
         body {
             overflow-x: hidden;
@@ -198,7 +201,6 @@
     </nav>
 
     <!-- Hero Section -->
-    <!-- CONSISTENT LAYOUT: h-auto with explicit padding guarantees identical look on Chrome/Firefox Mobile Desktop Mode -->
     <section id="home"
         class="h-auto flex items-center justify-center pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden">
 
@@ -611,18 +613,20 @@
 
     <!-- Footer -->
     <!-- 
-         Final Consistency Check: 
-         - Flexbox alignment enforces equal centering on FF/Chrome.
-         - "py-6" maintains the fitted look you requested.
+         Final Standardization Fix:
+         1. 'flex items-center justify-center': Standardizes vertical and horizontal alignment across engines.
+         2. 'leading-6': Uses a fixed 1.5rem line-height instead of relative defaults.
+         3. 'm-0 p-0': Strict reset on the paragraph tag to kill browser agent margins.
     -->
-    <footer
-        class="w-full bg-slate-50 dark:bg-slate-900 py-6 border-t border-slate-200 dark:border-slate-800 flex justify-center items-center">
-        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm leading-relaxed">
-            <p>&copy;2025 Sudipta Sarkar — Engineered with code, crafted with vision.</p>
+    <footer class="w-full bg-slate-50 dark:bg-slate-900 py-6 border-t border-slate-200 dark:border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 w-full flex items-center justify-center">
+            <p class="m-0 p-0 text-center text-slate-500 text-sm leading-6">
+                &copy;2025 Sudipta Sarkar — Engineered with code, crafted with vision.
+            </p>
         </div>
     </footer>
 
-    <!-- AOS Animation Script-->
+    <!-- AOS Animation Script -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./script.js"></script>
 </body>
