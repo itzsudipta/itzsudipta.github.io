@@ -6,13 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudipta Sarkar | Python & ML Developer</title>
 
+    <!-- SEO: Canonical Tag (Prevents duplicate content) -->
+    <link rel="canonical" href="https://itzsudipta.github.io/">
+
+    <!-- SEO: Robots Tag (Tells crawlers to index this page) -->
+    <meta name="robots" content="index, follow">
+
     <!-- Fixed Description Tag -->
     <meta name="description"
         content="Portfolio of Sudipta Sarkar - A Final Year CS Student specializing in Python, Machine Learning, and Scalable Web Solutions.">
 
     <meta name="keywords"
-        content="Sudipta Sarkar, Python Developer, Machine Learning, Portfolio, Web Developer, SQL, Data Science">
+        content="Sudipta Sarkar, Python Developer, Machine Learning, Portfolio, Web Developer, SQL, Data Science, Software Engineer Kolkata">
     <meta name="author" content="Sudipta Sarkar">
+
+    <!-- SEO: Structured Data (Schema.org for Person) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sudipta Sarkar",
+      "url": "https://itzsudipta.github.io/",
+      "image": "https://github.com/itzsudipta.png",
+      "sameAs": [
+        "https://github.com/itzsudipta",
+        "https://www.linkedin.com/in/infosudipta/",
+        "https://x.com/TheSudiptaVerse"
+      ],
+      "jobTitle": "Python & ML Developer",
+      "description": "Final Year CS Student specializing in Python, Machine Learning, and Scalable Web Solutions.",
+      "knowsAbout": ["Python", "Machine Learning", "Web Development", "SQL"]
+    }
+    </script>
 
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
@@ -263,7 +288,8 @@
                 <!-- Right Column: Profile Picture -->
                 <div class="flex justify-center md:justify-end order-1 md:order-2 relative" data-aos="fade-left">
                     <div class="relative w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 group">
-                        <img src="https://github.com/itzsudipta.png" alt="Profile Picture"
+                        <!-- SEO UPDATE: Added Descriptive Alt Text -->
+                        <img src="https://github.com/itzsudipta.png" alt="Sudipta Sarkar - Python & ML Developer"
                             class="w-full h-full object-cover rounded-full border-4 border-white dark:border-slate-800 shadow-2xl relative z-10 transition-transform duration-500 group-hover:scale-105">
                         <div
                             class="absolute -top-2 -right-2 md:-top-4 md:-right-4 bg-white dark:bg-slate-800 p-2 md:p-3 rounded-xl shadow-lg z-20">
@@ -559,16 +585,19 @@
                         </div>
                         <div class="mt-10">
                             <div class="flex space-x-4">
+                                <!-- SEO UPDATE: Added Aria Labels to Links -->
                                 <a href="https://github.com/itzsudipta" target="_blank" rel="noopener noreferrer"
+                                    aria-label="GitHub Profile"
                                     class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center hover:bg-white hover:text-primary transition-all">
                                     <i class="fab fa-github"></i>
                                 </a>
                                 <a href="https://www.linkedin.com/in/infosudipta/" target="_blank"
-                                    rel="noopener noreferrer"
+                                    rel="noopener noreferrer" aria-label="LinkedIn Profile"
                                     class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center hover:bg-white hover:text-primary transition-all">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
                                 <a href="https://x.com/TheSudiptaVerse" target="_blank" rel="noopener noreferrer"
+                                    aria-label="Twitter Profile"
                                     class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center hover:bg-white hover:text-primary transition-all">
                                     <i class="fab fa-twitter"></i>
                                 </a>
@@ -612,26 +641,19 @@
     </section>
 
     <!-- Footer -->
-    <!-- 
-         CONSISTENCY FIX:
-         1. 'h-20': Hardcodes height to 5rem (80px) instead of using padding, which can vary with text scaling.
-         2. 'flex items-center': Vertically centers content within that 80px box perfectly.
-         3. 'm-0 p-0': Resets user-agent margins so the text block doesn't push the container.
-         4. 'leading-none': Removes extra line-height calculations.
-    -->
     <footer
         class="w-full bg-slate-50 dark:bg-slate-900 py-4 flex items-center justify-center border-t border-slate-200 dark:border-slate-800">
 
-            <div class="max-w-7xl mx-auto px-4 w-full text-center">
+        <div class="max-w-7xl mx-auto px-4 w-full text-center">
             <p class="m-0 p-0 text-slate-500 text-sm leading-none">
-                    &copy;2025 Sudipta Sarkar — Engineered with code, crafted with vision.
-                </p>
-            </div>
+                &copy;2025 Sudipta Sarkar — Engineered with code, crafted with vision.
+            </p>
+        </div>
     </footer>
 
     <!-- AOS Animation Script-->
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="./script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
