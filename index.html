@@ -613,22 +613,24 @@
 
     <!-- Footer -->
     <!-- 
-         Final Standardization Fix:
-         1. 'flex items-center justify-center': Standardizes vertical and horizontal alignment across engines.
-         2. 'leading-6': Uses a fixed 1.5rem line-height instead of relative defaults.
-         3. 'm-0 p-0': Strict reset on the paragraph tag to kill browser agent margins.
+         CONSISTENCY FIX:
+         1. 'h-20': Hardcodes height to 5rem (80px) instead of using padding, which can vary with text scaling.
+         2. 'flex items-center': Vertically centers content within that 80px box perfectly.
+         3. 'm-0 p-0': Resets user-agent margins so the text block doesn't push the container.
+         4. 'leading-none': Removes extra line-height calculations.
     -->
-    <footer class="w-full bg-slate-50 dark:bg-slate-900 py-6 border-t border-slate-200 dark:border-slate-800 relative">
-        <div class="max-w-7xl mx-auto px-4 w-full flex items-center justify-center">
-            <p class="m-0 p-0 text-center text-slate-500 text-sm leading-6">
+    <footer
+        class="w-full bg-slate-50 dark:bg-slate-900 h-20 flex items-center justify-center border-t border-slate-200 dark:border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 w-full text-center">
+            <p class="m-0 p-0 text-slate-500 text-sm leading-none">
                 &copy;2025 Sudipta Sarkar — Engineered with code, crafted with vision.
             </p>
         </div>
     </footer>
 
-    <!-- AOS Animation Script -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="./script.js"></script>
+    <!-- AOS Animation Script-->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="./script.js"></script>
 </body>
 
 </html>
