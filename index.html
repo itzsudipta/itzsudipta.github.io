@@ -173,12 +173,13 @@
 
     <!-- Hero Section -->
     <!-- 
-         FIX: 
-         - Unified `pt-24` (Mobile & Desktop): Removes the extra 8rem jump on "desktop mode" which caused the gap.
-         - Reduced `pb-10` / `md:pb-12`: Tightens the bottom space.
+         CRITICAL FIX: 
+         - Removed `min-h-screen` to stop the section from forcing huge gaps on desktop-mode mobile.
+         - Added `h-auto` to fit content naturally.
+         - Used `pt-32 pb-16 md:pt-40 md:pb-20` to set precise, consistent gaps for all devices.
     -->
     <section id="home"
-        class="min-h-screen flex items-center justify-center pt-24 pb-10 md:pt-24 md:pb-12 relative overflow-hidden">
+        class="h-auto flex items-center justify-center pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden">
 
         <!-- Background Decoration -->
         <div
@@ -588,7 +589,7 @@
     </section>
 
     <!-- Footer -->
-    <!-- Kept fitted as py-6 -->
+    <!-- Fitted size (py-6) -->
     <footer class="bg-slate-50 dark:bg-slate-900 py-6 border-t border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
             <p>&copy;2025 Sudipta Sarkar — Engineered with code, crafted with vision.</p>
