@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 
 <head>
     <meta charset="UTF-8">
@@ -118,32 +118,31 @@
         </div>
     </nav>
 
-    <!-- Hero Section - Compacted Spacing -->
+    <!-- Hero Section -->
     <section id="home"
         class="h-auto flex items-center justify-center pt-28 pb-10 md:pt-36 md:pb-12 relative overflow-hidden">
+        <!-- Fix: Changed w-[600px] h-[600px] to responsive sizes to prevent mobile horizontal scroll -->
         <div
-            class="absolute top-0 right-0 -translate-y-12 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none transform translate-x-1/4">
+            class="absolute top-0 right-0 -translate-y-12 w-64 h-64 sm:w-96 sm:h-96 lg:w-[600px] lg:h-[600px] bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none transform translate-x-1/4">
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
                 <div class="text-center md:text-left order-2 md:order-1" data-aos="fade-right">
-                    <!-- Compacted margin: mb-6 -> mb-4 -->
                     <div
                         class="inline-flex items-center px-3 py-1 mb-4 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800">
                         <span class="w-2 h-2 rounded-full bg-blue-500 mr-2"></span>
                         <p class="text-blue-600 dark:text-blue-400 font-semibold tracking-wide uppercase text-xs">Final
                             Year CS Student</p>
                     </div>
-                    <!-- Compacted margin: mb-6 -> mb-4 -->
-                    <h1 class="text-4xl lg:text-6xl font-bold mb-4 leading-tight text-slate-900 dark:text-white">
+                    <!-- Fix: Changed text-4xl to text-3xl for better mobile fit -->
+                    <h1
+                        class="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 leading-tight text-slate-900 dark:text-white">
                         Building Scalable<br><span class="gradient-text">ML & Web Solutions</span>
                     </h1>
-                    <!-- Compacted margin: mb-8 -> mb-6 -->
                     <p class="text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed max-w-lg mx-auto md:mx-0">
                         Building intelligent web applications with Python and Machine Learning. Turning complex data
                         into simple, scalable solutions.
                     </p>
-                    <!-- Compacted margin: mb-12 -> mb-8 -->
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8">
                         <a href="#projects"
                             class="px-7 py-3.5 bg-primary hover:bg-blue-600 text-white rounded-lg font-medium transition-all shadow-lg shadow-blue-500/30 flex items-center justify-center">View
@@ -156,7 +155,6 @@
                             <span>Download CV</span><i class="fas fa-download ml-2"></i>
                         </a>
                     </div>
-                    <!-- Compacted padding: pt-8 -> pt-6 -->
                     <div class="border-t border-slate-200 dark:border-slate-800 pt-6">
                         <p class="text-sm text-slate-500 mb-4 font-medium">Tech Stack</p>
                         <div
@@ -420,8 +418,8 @@
                                     aria-label="GitHub Profile"
                                     class="w-10 h-10 rounded-lg border border-white/20 bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-primary transition-all shadow-lg"><i
                                         class="fab fa-github text-lg"></i></a>
-                                <a href="https://www.linkedin.com/in/infosudipta/" target="_blank" rel="noopener noreferrer"
-                                    aria-label="LinkedIn Profile"
+                                <a href="https://www.linkedin.com/in/infosudipta/" target="_blank"
+                                    rel="noopener noreferrer" aria-label="LinkedIn Profile"
                                     class="w-10 h-10 rounded-lg border border-white/20 bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-primary transition-all shadow-lg"><i
                                         class="fab fa-linkedin-in text-lg"></i></a>
                                 <a href="https://x.com/TheSudiptaVerse" target="_blank" rel="noopener noreferrer"
@@ -431,7 +429,7 @@
                             </div>
                         </div>
                     </div>
-    
+
                     <!-- Contact Form -->
                     <div class="p-10">
                         <form id="contact-form" action="https://formspree.io/f/mdkbbaon" method="POST">
@@ -456,13 +454,13 @@
                                     class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all placeholder:text-slate-500 dark:placeholder:text-slate-400"
                                     placeholder="Tell me about your project..."></textarea>
                             </div>
-    
+
                             <div class="relative h-14 w-full">
                                 <button type="submit" id="submit-btn"
                                     class="absolute inset-0 w-full h-full bg-slate-900 dark:bg-primary text-white rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center justify-center">
                                     Send Message
                                 </button>
-    
+
                                 <div id="form-status" aria-live="polite"
                                     class="hidden absolute inset-0 w-full h-full rounded-lg font-semibold items-center justify-center text-center px-2">
                                 </div>
