@@ -18,48 +18,20 @@ It is engineered to serve as a digital identity, showcasing my **academic journe
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack & Workflow
 
-The portfolio is built with a focus on **performance**, **minimalism**, and **cross-browser compatibility**.
+The portfolio focuses on **performance** and **maintainability**. Instead of using heavy frameworks or CDNs, this project utilizes a local build process to generate optimized assets.
 
-| Technology | Category | Purpose |
-| :--- | :--- | :--- |
-| **HTML5** | Core Structure | Semantic markup ensuring accessibility and structure. |
-| **Tailwind CSS** | Styling | Utility-first framework for rapid, responsive, and dark-mode-ready design. |
-| **JavaScript (ES6+)** | Logic | Handles DOM manipulation, theme toggling, and mobile interactivity. |
-| **AOS (Animate On Scroll)** | Animation | Lightweight library for smooth scroll-triggered animations. |
-| **FontAwesome** | Assets | Vector icons for UI elements and social links. |
+### Core Technologies
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![FontAwesome](https://img.shields.io/badge/Font%20Awesome-538DD7?style=for-the-badge&logo=fontawesome&logoColor=white)
 
----
-
-## ⚠️ Usage & Restrictions
-
-**This project is developed solely for personal use.**
-
-While I encourage you to explore the code structure for educational purposes or inspiration, **you are strictly prohibited from:**
-1.  Copying this repository or codebase directly for your own portfolio.
-2.  Reusing the design template without significant modification.
-3.  Using this code for commercial purposes.
-
-If you choose to use any part of this code for learning, you must adhere to the license terms below.
-
----
-
-## 📄 License
-
-This project is protected under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License**.
-
-[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-
-**Under this license, you are free to:**
-*   **Share** — copy and redistribute the material in any medium or format.
-
-**Under the following terms:**
-*   **Attribution** — You must give appropriate credit to the original author (**Sudipta Sarkar**).
-*   **NonCommercial** — You may not use the material for commercial purposes.
-*   **NoDerivatives** — If you remix, transform, or build upon the material, you may not distribute the modified material.
-
-[View Full License Deed](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+### Build & Performance
+*   **Local Tailwind Build:** I utilize the **Tailwind CLI** locally to scan HTML files and generate a highly optimized, minified CSS output file. This ensures zero unused CSS in production, significantly improving load times compared to CDN usage.
+*   **AOS (Animate On Scroll):** Lightweight library for smooth, scroll-triggered animations without heavy overhead.
+*   **Asset Optimization:** All images and scripts are optimized for mobile-first performance.
 
 ---
 
