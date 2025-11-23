@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/* 1. Define the Dark Mode Variant manually for Class-based toggling */
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-primary: #3B82F6;
+    --color-secondary: #10B981;
+    --color-dark: #0F172A;
+    --color-light: #F8FAFC;
+    --font-sans: "Inter", sans-serif;
+}
+
+@layer utilities {
+    .gradient-text {
+        background: linear-gradient(to right, #3B82F6, #10B981);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+    }
+}
+
+/* Standard Resets */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 #1e293b;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
+}
