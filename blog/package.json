@@ -1,0 +1,11 @@
+{
+    "name": "my-blog-submodule",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "npx tailwindcss -i ./src/style.css -o ./dist/output.css --watch",
+        "build": "npx tailwindcss -i ./src/style.css -o ./dist/output.css --minify"
+    },
+    "dependencies": {
+        "tailwindcss": "^3.4.1"
+    }
+}
