@@ -35,7 +35,7 @@
                         class="hidden md:block text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
                         <i class="fas fa-arrow-left mr-2"></i> Back to Portfolio
                     </a>
-                <button id="theme-toggle"
+                <button id="theme-toggle" aria-label="Toggle dark mode"
                     class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors focus:outline-none text-slate-800 dark:text-white flex items-center justify-center w-10 h-10">
                 
                     <!-- Moon: Force BLOCK in light mode, Force HIDDEN in dark mode -->
@@ -54,16 +54,16 @@
 
         <!-- List View -->
         <div id="blog-list-view" class="animate-fade-in">
-            <div class="text-center mb-12" data-aos="fade-down">
+            <div class="text-center mb-8 sm:mb-12 px-4" data-aos="fade-down">
                 <div
                     class="inline-flex items-center px-3 py-1 mb-4 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800">
                     <span class="w-2 h-2 rounded-full bg-blue-500 mr-2 animate-pulse"></span>
                     <p class="text-blue-600 dark:text-blue-400 font-semibold tracking-wide uppercase text-xs">Technical
                         Blog</p>
                 </div>
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">Insights on <span
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-slate-900 dark:text-white">Insights on <span
                         class="gradient-text">Code & Data</span></h1>
-                <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Tutorials, deep-dives, and
+                <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto px-2">Tutorials, deep-dives, and
                     thoughts on Machine Learning, Python ecosystem, and building scalable web architectures.</p>
             </div>
             <div class="mb-12 space-y-4 md:space-y-0 md:flex md:items-center md:justify-between" data-aos="fade-up">
@@ -101,9 +101,9 @@
                 <div class="h-64 md:h-96 w-full relative overflow-hidden">
                     <img id="post-hero-image" src="" alt="Blog Cover" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 p-6 md:p-10 w-full">
-                        <div id="post-tags" class="flex flex-wrap gap-2 mb-3 relative z-10"></div>
-                        <h1 id="post-title" class="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight"></h1>
+                    <div class="absolute bottom-0 left-0 p-4 sm:p-6 md:p-10 w-full">
+                        <div id="post-tags" class="flex flex-wrap gap-2 mb-3 relative z-10 max-w-full overflow-x-auto"></div>
+                        <h1 id="post-title" class="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-3 sm:mb-4 leading-tight"></h1>
                         <div class="flex items-center text-slate-300 text-sm md:text-base">
                             <span class="mr-4"><i class="far fa-calendar mr-2"></i><span id="post-date"></span></span>
                             <span><i class="far fa-clock mr-2"></i><span id="post-read-time"></span></span>
@@ -123,7 +123,7 @@
                                 <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">Author</h3>
                                 <div
                                     class="w-24 h-24 rounded-full border-2 border-primary mb-4 shadow-md overflow-hidden">
-                                    <img src="https://github.com/itzsudipta.png" class="w-full h-full object-cover">
+                                    <img src="https://github.com/itzsudipta.png" alt="Sudipta Sarkar" class="w-full h-full object-cover">
                                 </div>
                                 <div>
                                     <p class="font-bold text-lg text-slate-900 dark:text-white">Sudipta Sarkar</p>
@@ -137,19 +137,20 @@
                                     Share</h3>
                                 <div class="flex gap-3 justify-center lg:justify-start">
                                     <!-- Twitter / X -->
-                                    <a href="https://x.com/TheSudiptaVerse" target="_blank" rel="noopener noreferrer"
+                                    <a href="https://x.com/TheSudiptaVerse" target="_blank" rel="noopener noreferrer" aria-label="Follow on Twitter"
                                         class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center hover:scale-110 transition-transform">
                                         <i class="fab fa-twitter"></i>
                                     </a>
                                     
                                     <!-- LinkedIn -->
                                     <a href="https://www.linkedin.com/in/infosudipta/" target="_blank" rel="noopener noreferrer"
+                                        aria-label="Connect on LinkedIn"
                                         class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center hover:scale-110 transition-transform">
                                         <i class="fab fa-linkedin-in"></i>
                                     </a>
                                     
                                     <!-- GitHub (or Copy Link) -->
-                                    <a href="https://github.com/itzsudipta" target="_blank" rel="noopener noreferrer"
+                                    <a href="https://github.com/itzsudipta" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile"
                                         class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center hover:scale-110 transition-transform">
                                         <!-- Changed icon to github since it links to github -->
                                         <i class="fab fa-github"></i>

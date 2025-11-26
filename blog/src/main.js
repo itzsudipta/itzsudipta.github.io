@@ -51,15 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm text-white text-xs px-2 py-1 rounded">${post.category}</div>
                 </div>
-                <div class="p-6 flex flex-col flex-grow">
+                <div class="p-6 flex flex-col grow">
                     <div class="flex items-center text-xs text-slate-500 dark:text-slate-400 mb-3 space-x-4">
                         <span><i class="far fa-calendar-alt mr-1"></i> ${post.date}</span>
                         <span><i class="far fa-clock mr-1"></i> ${post.readTime}</span>
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors line-clamp-2">${post.title}</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-3 flex-grow">${post.excerpt}</p>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-3 grow">${post.excerpt}</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        ${post.tags.map(tag => `<span class="text-xs bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded">${tag}</span>`).join('')}
+                        ${post.tags.map(tag => `<span class="inline-block text-xs bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2 py-1 rounded whitespace-nowrap">${tag}</span>`).join('')}
                     </div>
                     <button onclick="router('post', ${post.id})" class="w-full mt-auto py-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-primary hover:text-white hover:border-primary transition-all text-sm font-medium">
                         Read Article <i class="fas fa-arrow-right ml-1"></i>
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('post-read-time').innerText = post.readTime;
         document.getElementById('post-hero-image').src = post.image;
         document.getElementById('post-content').innerHTML = post.content;
-        document.getElementById('post-tags').innerHTML = post.tags.map(tag => `<span class="px-3 py-1 rounded-full bg-primary/20 text-blue-200 text-sm font-medium border border-primary/30">${tag}</span>`).join('');
+        document.getElementById('post-tags').innerHTML = post.tags.map(tag => `<span class="inline-block px-3 py-1 rounded-full bg-blue-600 dark:bg-blue-500 text-white text-sm font-medium border border-blue-700 dark:border-blue-400 whitespace-nowrap">${tag}</span>`).join('');
 
         window.scrollTo(0, 0);
     }
