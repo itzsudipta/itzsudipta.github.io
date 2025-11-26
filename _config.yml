@@ -1,0 +1,24 @@
+# Jekyll Configuration for GitHub Pages
+# This enables the jekyll-redirect-from plugin
+
+# Site settings
+title: Sudipta Sarkar
+description: Portfolio of Sudipta Sarkar - Python & ML Developer
+url: https://iamsudiptasarkar.me
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+
+# Plugins
+plugins:
+  - jekyll-redirect-from
+
+# Exclude files from processing
+exclude:
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - postcss.config.mjs
+  - README.md
+  - src/
