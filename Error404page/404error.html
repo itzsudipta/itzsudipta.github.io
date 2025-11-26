@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="prerender-status-code" content="404">
+    <meta name="robots" content="noindex, nofollow">
+    <title>404 - Page Not Found | Sudipta Sarkar</title>
+    <meta name="description"
+        content="Oops! The page you're looking for doesn't exist. Return to Sudipta Sarkar's portfolio or explore the blog.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="404 - Page Not Found">
+    <meta property="og:description" content="This page doesn't exist. Return to the main site.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- 1. Link to your Tailwind CSS file -->
+    <link rel="stylesheet" href="../dist/output.css">
+
+    <!-- 2. Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap"
+        rel="stylesheet">
+
+    <!-- 3. Custom CSS for Animations & Specific Overrides -->
+    <link rel="stylesheet" href="../Error404page/404error.css">
+</head>
+
+<body class="min-h-screen flex flex-col relative selection:bg-green-500 selection:text-slate-900">
+
+    <!-- BACKGROUND: Binary Rain Container -->
+    <div id="particles-container" class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0"></div>
+
+    <!-- MAIN CONTENT WRAPPER -->
+    <!-- Used min-h-screen and py-12 to ensure content never gets cut off on small screens -->
+    <main class="grow flex items-center justify-center w-full px-4 py-12 md:px-8 relative z-10">
+
+        <div class="w-full max-w-4xl flex flex-col items-center text-center">
+
+            <!-- 1. ANIMATED ILLUSTRATION -->
+            <!-- viewBox ensures it scales perfectly. max-w-lg limits it on big screens. -->
+            <div class="w-full max-w-[500px] mb-6 md:mb-10 relative">
+                <svg viewBox="0 0 600 340" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="w-full h-auto drop-shadow-2xl">
+                    <defs>
+                        <!-- Gradients for a modern look -->
+                        <linearGradient id="grad-text" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#334155" /> <!-- Slate-700 -->
+                            <stop offset="100%" stop-color="#1E293B" /> <!-- Slate-800 -->
+                        </linearGradient>
+                        <linearGradient id="grad-bug" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#34D399" /> <!-- Emerald-400 -->
+                            <stop offset="100%" stop-color="#059669" /> <!-- Emerald-600 -->
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Shadow under the 404 -->
+                    <ellipse cx="300" cy="310" rx="220" ry="15" fill="#000" fill-opacity="0.4" filter="blur(8px)" />
+
+                    <!-- THE "4" (Left) -->
+                    <g transform="translate(0,0)">
+                        <path d="M60,280 L140,280 L140,140 L60,280 Z" fill="url(#grad-text)" stroke="#475569"
+                            stroke-width="2" />
+                        <rect x="120" y="80" width="40" height="200" rx="6" fill="url(#grad-text)" stroke="#475569"
+                            stroke-width="2" />
+                    </g>
+
+                    <!-- THE "4" (Right) -->
+                    <g transform="translate(380,0)">
+                        <path d="M60,280 L140,280 L140,140 L60,280 Z" fill="url(#grad-text)" stroke="#475569"
+                            stroke-width="2" />
+                        <rect x="120" y="80" width="40" height="200" rx="6" fill="url(#grad-text)" stroke="#475569"
+                            stroke-width="2" />
+                    </g>
+
+                    <!-- THE "0" (Center - The Perch) -->
+                    <rect x="210" y="90" width="160" height="190" rx="80" fill="#1E293B" stroke="#475569"
+                        stroke-width="2" />
+                    <rect x="250" y="130" width="80" height="110" rx="40" fill="#0F172A" /> <!-- Inner hole -->
+
+                    <!-- Tech Detail: Data Cables wrapping around -->
+                    <path d="M140,240 C170,240 190,270 240,270" stroke="#3B82F6" stroke-width="3" fill="none"
+                        stroke-linecap="round" class="anim-pulse" />
+                    <path d="M440,240 C410,240 390,270 340,270" stroke="#8B5CF6" stroke-width="3" fill="none"
+                        stroke-linecap="round" class="anim-pulse" style="animation-delay: 1s;" />
+
+                    <!-- THE BUG CHARACTER (Grouped for Animation) -->
+                    <g id="bug-character" class="anim-float">
+                        <!-- Legs (Behind body) -->
+                        <path d="M265,110 Q245,100 235,125" stroke="#10B981" stroke-width="5" stroke-linecap="round"
+                            fill="none" />
+                        <path d="M315,110 Q335,100 345,125" stroke="#10B981" stroke-width="5" stroke-linecap="round"
+                            fill="none" />
+                        <path d="M260,135 Q240,140 230,160" stroke="#10B981" stroke-width="5" stroke-linecap="round"
+                            fill="none" />
+                        <path d="M320,135 Q340,140 350,160" stroke="#10B981" stroke-width="5" stroke-linecap="round"
+                            fill="none" />
+
+                        <!-- Body -->
+                        <ellipse cx="290" cy="120" rx="55" ry="50" fill="url(#grad-bug)" />
+                        <!-- Belly Highlight -->
+                        <ellipse cx="290" cy="130" rx="35" ry="30" fill="#6EE7B7" fill-opacity="0.3" />
+
+                        <!-- Face/Eyes Container -->
+                        <g id="eyes-container">
+                            <!-- Left Eye -->
+                            <g>
+                                <circle cx="270" cy="110" r="14" fill="#064E3B" />
+                                <circle id="pupil-left" cx="270" cy="110" r="5" fill="#FFFFFF" />
+                                <circle cx="273" cy="107" r="2.5" fill="#FFFFFF" fill-opacity="0.7" />
+                            </g>
+                            <!-- Right Eye -->
+                            <g>
+                                <circle cx="310" cy="110" r="14" fill="#064E3B" />
+                                <circle id="pupil-right" cx="310" cy="110" r="5" fill="#FFFFFF" />
+                                <circle cx="313" cy="107" r="2.5" fill="#FFFFFF" fill-opacity="0.7" />
+                            </g>
+
+                            <!-- Eyelids for blinking -->
+                            <g class="anim-blink">
+                                <path d="M256,100 Q270,90 284,100 L284,110 L256,110 Z" fill="#10B981" />
+                                <path d="M296,100 Q310,90 324,100 L324,110 L296,110 Z" fill="#10B981" />
+                            </g>
+                        </g>
+
+                        <!-- Mouth (O shape) -->
+                        <circle cx="290" cy="145" r="7" fill="#064E3B" />
+
+                        <!-- Antennas -->
+                        <path d="M270,75 Q260,40 240,55" stroke="#10B981" stroke-width="4" stroke-linecap="round"
+                            fill="none" class="anim-wiggle-left" />
+                        <circle cx="240" cy="55" r="4" fill="#34D399" class="anim-wiggle-left" />
+
+                        <path d="M310,75 Q320,40 340,55" stroke="#10B981" stroke-width="4" stroke-linecap="round"
+                            fill="none" class="anim-wiggle-right" />
+                        <circle cx="340" cy="55" r="4" fill="#34D399" class="anim-wiggle-right" />
+                    </g>
+                </svg>
+            </div>
+
+            <!-- 2. TEXT CONTENT -->
+            <div class="space-y-4 md:space-y-6 relative z-20">
+                <div
+                    class="inline-block px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-green-400 text-xs font-mono mb-2">
+                    Error Code: 404_NOT_FOUND
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                    Look what you <br class="md:hidden" />
+                    <span
+                        class="text-transparent bg-clip-text bg-linear-to-r from-green-400 to-blue-500">discovered!</span>
+                </h1>
+
+                <p class="text-slate-400 text-base md:text-xl max-w-lg mx-auto leading-relaxed">
+                    This page has been reclaimed by the digital wildlife. The content you're looking for doesn't exist
+                    or has moved to another server.
+                </p>
+
+                <!-- 3. ACTION BUTTONS -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 w-full">
+                    <!-- Home Button -->
+                    <a href="../index.html" aria-label="Go back to homepage"
+                        class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-green-600 hover:bg-green-500 text-white font-bold transition-all shadow-lg shadow-green-900/20 transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
+                        Back Home
+                    </a>
+
+                    <!-- Blog Button -->
+                    <a href="../blog/index.html" aria-label="Visit the blog"
+                        class="w-full sm:w-auto px-8 py-3.5 rounded-lg glass-btn text-slate-200 hover:text-white hover:bg-white/10 font-medium transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 group">
+                        Explore Blog
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="transition-transform group-hover:translate-x-1" aria-hidden="true">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full py-6 text-center text-slate-600 text-sm font-mono relative z-10">
+        <p>System Status: <span class="text-yellow-500">Offline</span> | Bug Count: <span id="bug-counter">1</span></p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="../Error404page/404error.js"></script>
+</body>
+
+</html>

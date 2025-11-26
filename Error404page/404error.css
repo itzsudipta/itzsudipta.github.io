@@ -1,0 +1,133 @@
+/* Base Settings */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0F172A;
+    /* Matches bg-slate-900 */
+    color: #ffffff;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+/* --- SVG Animations --- */
+
+/* Floating effect for the Bug */
+@keyframes float-bug {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Floating effect for binary particles */
+@keyframes float-particle {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.5;
+    }
+
+    90% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(-10vh) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+/* Blinking Eyes */
+@keyframes blink {
+
+    0%,
+    96%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    98% {
+        transform: scaleY(0.1);
+    }
+}
+
+/* Antenna Wiggle */
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+}
+
+/* Cable Glow Pulse */
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        stroke-opacity: 0.4;
+    }
+
+    50% {
+        stroke-opacity: 1;
+    }
+}
+
+/* Class Hooks for Animations */
+.anim-float {
+    animation: float-bug 4s ease-in-out infinite;
+}
+
+.anim-blink {
+    transform-origin: center;
+    animation: blink 4s infinite;
+}
+
+.anim-wiggle-left {
+    transform-origin: bottom right;
+    animation: wiggle 3s ease-in-out infinite;
+}
+
+.anim-wiggle-right {
+    transform-origin: bottom left;
+    animation: wiggle 3s ease-in-out infinite reverse;
+}
+
+.anim-pulse {
+    animation: pulse-glow 3s infinite;
+}
+
+/* --- Particle System --- */
+.binary-particle {
+    position: absolute;
+    font-family: 'JetBrains Mono', monospace;
+    color: rgba(16, 185, 129, 0.2);
+    /* Green-500 with low opacity */
+    user-select: none;
+    pointer-events: none;
+    z-index: 0;
+    animation: float-particle linear infinite;
+}
+
+/* --- Glassmorphism Utilities --- */
+.glass-btn {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
