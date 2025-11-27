@@ -14,6 +14,13 @@ markdown: kramdown
 plugins:
   - jekyll-redirect-from
 
+# 404 Page Configuration - Apply custom 404 to all paths including subfolders
+defaults:
+  - scope:
+      path: ""
+    values:
+      permalink: pretty
+
 # Exclude files from processing
 exclude:
   - node_modules/
