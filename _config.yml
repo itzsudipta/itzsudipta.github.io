@@ -28,4 +28,8 @@ exclude:
   - package-lock.json
   - postcss.config.mjs
   - README.md
+
+# Include static assets
+include:
+  - src/
   - src/
