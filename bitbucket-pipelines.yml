@@ -1,35 +1,29 @@
-# This is an example Starter pipeline configuration
-# Use a skeleton to build, test and deploy using manual and parallel steps
-# -----
-# You can specify a custom docker image from Docker Hub as your build environment.
-
-image: atlassian/default-image:3
+image: node:18
 
 pipelines:
   default:
     - parallel:
-      - step:
-          name: 'Build and Test'
-          script:
-            - echo "Your build and test goes here..."
-      - step:
-          name: 'Lint'
-          script:
-            - echo "Your linting goes here..."
-      - step:
-          name: 'Security scan'
-          script:
-            - echo "Your security scan goes here..."
+        - step:
+            name: "Build Frontend"
+            caches:
+              - node
+            script:
+              - cd frontend
+              - npm install
+              - npm run build
+            artifacts:
+              - frontend/build/**
+        - step:
+            name: "Test Backend"
+            script:
+              - cd backend
+              - python -m pip install -r requirements.txt
+              - pytest
 
-    # The following deployment steps will be executed for each pipeline run. To configure your steps and conditionally deploy see https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/
     - step:
-        name: 'Deployment to Staging'
-        deployment: staging
-        script:
-          - echo "Your deployment to staging script goes here..."
-    - step:
-        name: 'Deployment to Production'
+        name: "Deploy to Production"
         deployment: production
-        trigger: 'manual'
+        trigger: manual
         script:
-          - echo "Your deployment to production script goes here..."
+          - echo "Deploy frontend build to hosting..."
+          - echo "Deploy backend to server..."
