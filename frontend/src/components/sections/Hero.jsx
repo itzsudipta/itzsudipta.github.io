@@ -56,7 +56,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative overflow-hidden pt-20 md:pt-24 pb-8 md:pb-12">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-background">
         {/* Gradient Orbs */}
@@ -73,8 +73,10 @@ const Hero = () => {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="flex flex-col items-center text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4 md:py-6 lg:py-8">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+          {/* Left Side - Text Content */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
           {/* Terminal-style greeting */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -82,9 +84,9 @@ const Hero = () => {
             transition={{ duration: 0.5 }}
             className="mb-6"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-cyan-500/20 backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 border border-primary/20 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-sm font-mono text-cyan-400">Available for opportunities</span>
+                <span className="text-sm font-mono text-primary">Available for opportunities</span>
             </div>
           </motion.div>
 
@@ -95,8 +97,8 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mb-4"
           >
-            <span className="font-mono text-cyan-400 text-lg">{'> '}</span>
-            <span className="font-mono text-slate-400 text-lg">Hello, I'm</span>
+              <span className="font-mono text-primary text-lg">{'> '}</span>
+              <span className="font-mono text-muted-foreground text-lg">Hello, I'm</span>
           </motion.div>
 
           <motion.h1
@@ -139,21 +141,23 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="flex flex-col sm:flex-row items-center gap-4 mb-12"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12 w-full sm:w-auto"
           >
             <Button
               onClick={scrollToProjects}
               size="lg"
-              className="group bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 text-slate-900 font-semibold shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 px-8"
+                className="group bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 px-8 w-full sm:w-auto"
             >
               View My Work
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
-              onClick={scrollToContact}
+                as="a"
+                href="/assets/documents/Sudipta_Sarkar_CV.pdf"
+                download="Sudipta_Sarkar_CV.pdf"
               variant="outline"
               size="lg"
-              className="border-slate-700 hover:border-cyan-500/50 hover:bg-cyan-500/10 text-foreground px-8"
+                className="border-border hover:border-primary/50 hover:bg-primary/10 text-foreground px-8 w-full sm:w-auto"
             >
               <Download className="w-4 h-4 mr-2" />
               Download Resume
@@ -165,7 +169,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex items-center gap-4"
+              className="flex items-center justify-center lg:justify-start gap-3 flex-wrap"
           >
             {socialLinks.map((link, index) => {
               const Icon = iconMap[link.icon];
@@ -180,7 +184,7 @@ const Hero = () => {
                   transition={{ duration: 0.3, delay: 0.7 + index * 0.1 }}
                   whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-12 h-12 rounded-xl bg-slate-800/50 border border-slate-700/50 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all duration-300"
+                  className="w-12 h-12 rounded-xl bg-card/50 border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
                 >
                   <Icon className="w-5 h-5" />
                 </motion.a>
@@ -189,12 +193,49 @@ const Hero = () => {
           </motion.div>
         </div>
 
+          {/* Right Side - Profile Picture */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex items-center justify-center order-1 lg:order-2"
+          >
+            <div className="relative group">
+              {/* Glow Effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-pink-500 to-cyan-500 rounded-full blur-2xl opacity-75 group-hover:opacity-100 animate-pulse" />
+
+              {/* Outer Ring */}
+              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-cyan-500 via-pink-500 to-purple-500 p-1">
+                {/* Middle Ring */}
+                <div className="w-full h-full rounded-full bg-slate-900 p-2">
+                  {/* Inner Ring */}
+                  <div className="w-full h-full rounded-full bg-gradient-to-br from-slate-800 to-slate-900 p-3 border border-cyan-500/30">
+                    {/* Profile Image Container */}
+                    <div className="w-full h-full rounded-full overflow-hidden border-4 border-cyan-500/20 shadow-2xl shadow-cyan-500/50">
+                      <img
+                        src="/assets/images/132774307.webp"
+                        alt={personalInfo.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Particles */}
+              <div className="absolute top-0 right-0 w-4 h-4 bg-cyan-400 rounded-full animate-ping" />
+              <div className="absolute bottom-10 left-0 w-3 h-3 bg-pink-400 rounded-full animate-ping" style={{ animationDelay: '0.5s' }} />
+              <div className="absolute top-20 right-10 w-2 h-2 bg-purple-400 rounded-full animate-ping" style={{ animationDelay: '1s' }} />
+            </div>
+          </motion.div>
+        </div>
+
         {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:block"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}

@@ -34,17 +34,33 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Simulate API call (will be replaced with EmailJS later)
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Mock success
-      setSubmitStatus('success');
-      toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '2d2b2f4d-9a70-443b-aace-178345efcba9',
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        })
       });
-      setFormData({ name: '', email: '', message: '' });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        toast({
+          title: "Message sent!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('Submission failed');
+      }
     } catch (error) {
       setSubmitStatus('error');
       toast({
@@ -60,8 +76,8 @@ const Contact = () => {
   return (
     <section id="contact" className="relative py-24 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-slate-900/50 to-slate-950" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       
       {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
@@ -76,9 +92,9 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-4">
-            <MessageSquare className="w-4 h-4 text-cyan-400" />
-            <span className="text-sm font-medium text-cyan-400">Get in Touch</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
+            <MessageSquare className="w-4 h-4 text-primary" />
+            <span className="text-sm font-medium text-primary">Get in Touch</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Let's <span className="bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent">Connect</span>
@@ -88,7 +104,7 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -107,10 +123,10 @@ const Contact = () => {
 
             {/* Contact Cards */}
             <div className="space-y-4">
-              <Card className="p-4 bg-slate-800/30 border-slate-700/50 hover:border-cyan-500/30 transition-colors group">
+              <Card className="p-4 bg-card/30 border-border/50 hover:border-primary/30 transition-colors group">
                 <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
-                    <Mail className="w-5 h-5 text-cyan-400" />
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
@@ -119,7 +135,7 @@ const Contact = () => {
                 </a>
               </Card>
 
-              <Card className="p-4 bg-slate-800/30 border-slate-700/50 hover:border-cyan-500/30 transition-colors group">
+              <Card className="p-4 bg-card/30 border-border/50 hover:border-primary/30 transition-colors group">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center group-hover:bg-pink-500/20 transition-colors">
                     <MapPin className="w-5 h-5 text-pink-400" />
@@ -146,7 +162,7 @@ const Contact = () => {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-12 h-12 rounded-xl bg-slate-800/50 border border-slate-700/50 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all duration-300"
+                      className="w-12 h-12 rounded-xl bg-card/50 border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
                     >
                       <Icon className="w-5 h-5" />
                     </motion.a>
@@ -163,7 +179,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Card className="p-8 bg-slate-800/30 border-slate-700/50">
+            <Card className="p-8 bg-card/30 border-border/50">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -177,7 +193,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="John Doe"
-                    className="bg-slate-900/50 border-slate-700 focus:border-cyan-500/50"
+                    className="bg-background/50 border-border focus:border-primary/50"
                   />
                 </div>
 
@@ -193,7 +209,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="john@example.com"
-                    className="bg-slate-900/50 border-slate-700 focus:border-cyan-500/50"
+                    className="bg-background/50 border-border focus:border-primary/50"
                   />
                 </div>
 
@@ -209,14 +225,14 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tell me about your project or just say hi..."
-                    className="bg-slate-900/50 border-slate-700 focus:border-cyan-500/50 resize-none"
+                    className="bg-background/50 border-border focus:border-primary/50 resize-none"
                   />
                 </div>
 
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 text-slate-900 font-semibold shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300"
                 >
                   {isSubmitting ? (
                     <>

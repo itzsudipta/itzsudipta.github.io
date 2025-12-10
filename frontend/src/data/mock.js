@@ -6,15 +6,15 @@ export const personalInfo = {
   institution: "Narula Institute of Technology, Kolkata",
   bio: "Passionate about the math behind machine learning and bringing models to life on the web. When I'm not decoding equations that make ML work like magic, I'm diving deep into backend development. Always building, always exploring.",
   shortBio: "ML enthusiast who loves turning algorithms into real-world applications.",
-  email: "sudipta@example.com",
+  email: "info.sudipta.nit@gmail.com",
   location: "Kolkata, India"
 };
 
 export const socialLinks = [
-  { name: "GitHub", url: "https://github.com/sudipta", icon: "Github" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/sudipta", icon: "Linkedin" },
-  { name: "Twitter", url: "https://twitter.com/sudipta", icon: "Twitter" },
-  { name: "Email", url: "mailto:sudipta@example.com", icon: "Mail" }
+  { name: "GitHub", url: "https://github.com/itzsudipta", icon: "Github" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/infosudipta/", icon: "Linkedin" },
+  { name: "Twitter", url: "https://x.com/TheSudiptaVerse", icon: "Twitter" },
+  { name: "Email", url: "mailto:info.sudipta.nit@gmail.com", icon: "Mail" }
 ];
 
 export const skills = {
