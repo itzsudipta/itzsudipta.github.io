@@ -16,8 +16,8 @@ const About = () => {
   return (
     <section id="about" className="relative py-24 overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-slate-900/50 to-background" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -28,9 +28,9 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-4">
-            <Sparkles className="w-4 h-4 text-cyan-400" />
-            <span className="text-sm font-medium text-cyan-400">About Me</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm font-medium text-primary">About Me</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Who I <span className="bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent">Am</span>
@@ -51,10 +51,10 @@ const About = () => {
           >
             {/* Info Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <Card className="p-4 bg-slate-800/30 border-slate-700/50 hover:border-cyan-500/30 transition-colors">
+              <Card className="p-4 bg-card/30 border-border/50 hover:border-primary/30 transition-colors">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
-                    <GraduationCap className="w-5 h-5 text-cyan-400" />
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <GraduationCap className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">Education</p>
@@ -62,7 +62,7 @@ const About = () => {
                   </div>
                 </div>
               </Card>
-              <Card className="p-4 bg-slate-800/30 border-slate-700/50 hover:border-cyan-500/30 transition-colors">
+              <Card className="p-4 bg-card/30 border-border/50 hover:border-primary/30 transition-colors">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center">
                     <MapPin className="w-5 h-5 text-pink-400" />
@@ -88,14 +88,14 @@ const About = () => {
             </div>
 
             {/* Code Snippet */}
-            <Card className="p-4 bg-slate-900/80 border-slate-700/50 font-mono text-sm overflow-hidden">
+            <Card className="p-4 bg-background/80 border-border/50 font-mono text-xs sm:text-sm overflow-x-auto">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-3 h-3 rounded-full bg-red-500" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500" />
                 <div className="w-3 h-3 rounded-full bg-green-500" />
-                <span className="ml-2 text-slate-500 text-xs">about_me.py</span>
+                <span className="ml-2 text-muted-foreground text-xs">about_me.py</span>
               </div>
-              <pre className="text-slate-300">
+              <pre className="text-foreground whitespace-pre overflow-x-auto">
                 <code>
 {`class Developer:
     def __init__(self):
@@ -128,7 +128,7 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 * categoryIndex }}
               >
-                <Card className="p-5 bg-slate-800/30 border-slate-700/50 hover:border-cyan-500/20 transition-all duration-300 group">
+                <Card className="p-5 bg-card/30 border-border/50 hover:border-primary/20 transition-all duration-300 group">
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
                       category.color === 'cyan' ? 'bg-cyan-500/10 text-cyan-400' :

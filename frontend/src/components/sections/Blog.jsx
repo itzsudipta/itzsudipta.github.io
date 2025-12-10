@@ -37,8 +37,8 @@ const Blog = ({ showAll = false }) => {
   return (
     <section id="blog" className="relative py-24 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-slate-900/30 to-background" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/30 to-background" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -49,9 +49,9 @@ const Blog = ({ showAll = false }) => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-4">
-            <BookOpen className="w-4 h-4 text-cyan-400" />
-            <span className="text-sm font-medium text-cyan-400">Latest Articles</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
+            <BookOpen className="w-4 h-4 text-primary" />
+            <span className="text-sm font-medium text-primary">Latest Articles</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             From My <span className="bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent">Blog</span>
@@ -78,7 +78,7 @@ const Blog = ({ showAll = false }) => {
                 placeholder="Search articles..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 bg-slate-800/50 border-slate-700 focus:border-cyan-500/50"
+                className="pl-10 bg-card/50 border-border focus:border-primary/50"
               />
             </div>
 
@@ -92,8 +92,8 @@ const Blog = ({ showAll = false }) => {
                   onClick={() => setSelectedTag(tag)}
                   className={`transition-all duration-300 ${
                     selectedTag === tag
-                      ? 'bg-cyan-500 hover:bg-cyan-400 text-slate-900'
-                      : 'border-slate-700 hover:border-cyan-500/50 hover:bg-cyan-500/10'
+                    ? 'bg-primary hover:bg-primary/90 text-primary-foreground'
+                    : 'border-border hover:border-primary/50 hover:bg-primary/10'
                   }`}
                 >
                   <Tag className="w-3 h-3 mr-1" />
@@ -105,7 +105,7 @@ const Blog = ({ showAll = false }) => {
         )}
 
         {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {displayPosts.map((post, index) => (
             <motion.div
               key={post.id}
@@ -115,7 +115,7 @@ const Blog = ({ showAll = false }) => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Link to={`/blog/${post.slug}`}>
-                <Card className="group h-full bg-slate-800/30 border-slate-700/50 hover:border-cyan-500/30 transition-all duration-500 overflow-hidden">
+                <Card className="group h-full bg-card/30 border-border/50 hover:border-primary/30 transition-all duration-500 overflow-hidden">
                   {/* Gradient Header */}
                   <div className="h-2 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500" />
                   
@@ -133,7 +133,7 @@ const Blog = ({ showAll = false }) => {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-cyan-400 transition-colors mb-3 line-clamp-2">
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors mb-3 line-clamp-2">
                       {post.title}
                     </h3>
 
@@ -148,7 +148,7 @@ const Blog = ({ showAll = false }) => {
                         <Badge
                           key={tag}
                           variant="outline"
-                          className="text-xs border-slate-600 text-slate-400"
+                          className="text-xs border-border text-muted-foreground"
                         >
                           {tag}
                         </Badge>
@@ -156,7 +156,7 @@ const Blog = ({ showAll = false }) => {
                       {post.tags.length > 2 && (
                         <Badge
                           variant="outline"
-                          className="text-xs border-slate-600 text-slate-400"
+                          className="text-xs border-border text-muted-foreground"
                         >
                           +{post.tags.length - 2}
                         </Badge>
@@ -164,7 +164,7 @@ const Blog = ({ showAll = false }) => {
                     </div>
 
                     {/* Read More */}
-                    <div className="flex items-center text-cyan-400 text-sm font-medium group-hover:gap-2 transition-all">
+                    <div className="flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-all">
                       Read article
                       <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -210,7 +210,7 @@ const Blog = ({ showAll = false }) => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-slate-700 hover:border-cyan-500/50 hover:bg-cyan-500/10 group"
+                className="border-border hover:border-primary/50 hover:bg-primary/10 group"
               >
                 View All Articles
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

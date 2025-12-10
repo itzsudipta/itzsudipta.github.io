@@ -38,7 +38,7 @@ const Navbar = () => {
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-background/80 backdrop-blur-xl border-b border-cyan-500/10 shadow-lg shadow-cyan-500/5'
+          ? 'bg-background/80 backdrop-blur-xl border-b border-primary/10 shadow-lg shadow-primary/5'
             : 'bg-transparent'
         }`}
       >
@@ -53,7 +53,7 @@ const Navbar = () => {
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-pink-500 blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
               </div>
               <span className="font-bold text-lg text-foreground hidden sm:block">
-                Sudipta<span className="text-cyan-400">.</span>dev
+                Sudipta<span className="text-primary">.</span>dev
               </span>
             </Link>
 
@@ -108,7 +108,7 @@ const Navbar = () => {
 
               {/* Resume Button */}
               <Button
-                className="hidden sm:flex bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 text-slate-900 font-semibold shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
+                className="hidden sm:flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300"
               >
                 Resume
               </Button>
@@ -161,7 +161,7 @@ const Navbar = () => {
                     <Link
                       to={link.href}
                       onClick={() => handleNavClick(link.href)}
-                      className="block py-3 px-4 text-lg font-medium text-foreground hover:text-cyan-400 hover:bg-cyan-400/10 rounded-lg transition-colors"
+                      className="block py-3 px-4 text-lg font-medium text-foreground hover:text-primary hover:bg-primary/10 rounded-lg transition-colors"
                     >
                       {link.name}
                     </Link>
@@ -173,7 +173,7 @@ const Navbar = () => {
                   transition={{ delay: navLinks.length * 0.05 }}
                   className="mt-4"
                 >
-                  <Button className="w-full bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 text-slate-900 font-semibold">
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
                     Download Resume
                   </Button>
                 </motion.div>

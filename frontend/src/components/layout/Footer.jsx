@@ -15,26 +15,26 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-slate-950 border-t border-cyan-500/10">
+    <footer className="relative bg-background border-t border-primary/10">
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/5 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none" />
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2 group mb-4">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-pink-500 flex items-center justify-center">
+            <Link to="/" className="inline-flex items-center gap-2 group mb-3">
+              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-400 to-pink-500 flex items-center justify-center">
                 <Terminal className="w-5 h-5 text-white" />
               </div>
-              <span className="font-bold text-lg text-white">
-                Sudipta<span className="text-cyan-400">.</span>dev
+              <span className="font-bold text-lg text-foreground">
+                Sudipta<span className="text-primary">.</span>dev
               </span>
             </Link>
-            <p className="text-slate-400 max-w-md mb-6 leading-relaxed">
+            <p className="text-muted-foreground max-w-md mb-4 leading-relaxed text-sm">
               {personalInfo.shortBio} Based in {personalInfo.location}, building the future one line of code at a time.
             </p>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               {socialLinks.map((link) => {
                 const Icon = iconMap[link.icon];
                 return (
@@ -45,7 +45,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-10 h-10 rounded-lg bg-slate-800/50 border border-slate-700/50 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all duration-300"
+                    className="w-9 h-9 rounded-lg bg-card/50 border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
                   >
                     <Icon className="w-4 h-4" />
                   </motion.a>
@@ -56,13 +56,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Quick Links</h3>
-            <ul className="space-y-3">
+            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Quick Links</h3>
+            <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-slate-400 hover:text-cyan-400 transition-colors flex items-center gap-1 group"
+                    className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 group text-sm"
                   >
                     {link.name}
                     <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
@@ -74,31 +74,31 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Get in Touch</h3>
-            <ul className="space-y-3">
+            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Get in Touch</h3>
+            <ul className="space-y-2">
               <li>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="text-slate-400 hover:text-cyan-400 transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
                   {personalInfo.email}
                 </a>
               </li>
-              <li className="text-slate-400">{personalInfo.location}</li>
-              <li className="text-slate-400">{personalInfo.institution}</li>
+              <li className="text-muted-foreground text-sm">{personalInfo.location}</li>
+              <li className="text-muted-foreground text-sm">{personalInfo.institution}</li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-slate-800">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-slate-500 text-sm flex items-center gap-1">
+        <div className="mt-8 pt-5 border-t border-border">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p className="text-muted-foreground text-xs sm:text-sm flex items-center gap-1">
               © {currentYear} {personalInfo.name}. Built with
-              <Heart className="w-4 h-4 text-pink-500 fill-pink-500" />
+              <Heart className="w-3.5 h-3.5 text-pink-500 fill-pink-500" />
               and lots of coffee.
             </p>
-            <div className="flex items-center gap-6 text-sm text-slate-500">
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                 Available for opportunities
