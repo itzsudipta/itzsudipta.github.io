@@ -21,9 +21,12 @@ pipelines:
               - pytest
 
     - step:
-        name: "Deploy to Production"
+        name: "Deploy to Vercel"
         deployment: production
         trigger: manual
         script:
-          - echo "Deploy frontend build to hosting..."
-          - echo "Deploy backend to server..."
+          - npm install -g vercel
+          - cd frontend
+          - vercel --prod --token=$VERCEL_TOKEN --yes
+          - cd ../backend
+          - vercel --prod --token=$VERCEL_TOKEN --yes

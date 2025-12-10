@@ -112,7 +112,7 @@ Understanding the mathematics behind neural networks isn't just academic—it's 
       <main className="pt-20">
         {/* Hero Section */}
         <div className="relative py-16 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 via-background to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Back Button */}
             <motion.div
@@ -138,7 +138,7 @@ Understanding the mathematics behind neural networks isn't just academic—it's 
               {post.tags.map((tag) => (
                 <Badge
                   key={tag}
-                  className="bg-cyan-500/10 text-cyan-400 border border-cyan-500/20"
+                  className="bg-primary/10 text-primary border border-primary/20"
                 >
                   <Tag className="w-3 h-3 mr-1" />
                   {tag}
@@ -202,14 +202,14 @@ Understanding the mathematics behind neural networks isn't just academic—it's 
               </p>
 
               {/* Code Block */}
-              <Card className="p-4 bg-slate-900/80 border-slate-700/50 font-mono text-sm overflow-x-auto my-6">
+              <Card className="p-4 bg-background/80 border-border/50 font-mono text-sm overflow-x-auto my-6">
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-3 h-3 rounded-full bg-red-500" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500" />
                   <div className="w-3 h-3 rounded-full bg-green-500" />
-                  <span className="ml-2 text-slate-500 text-xs">forward_pass.py</span>
+                  <span className="ml-2 text-muted-foreground text-xs">forward_pass.py</span>
                 </div>
-                <pre className="text-slate-300">
+                <pre className="text-foreground">
                   <code>{`def forward(x, W, b):
     """Compute forward pass for a single layer"""
     z = np.dot(W, x) + b
@@ -288,14 +288,14 @@ Understanding the mathematics behind neural networks isn't just academic—it's 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {relatedPosts.map((relatedPost) => (
                   <Link key={relatedPost.id} to={`/blog/${relatedPost.slug}`}>
-                    <Card className="p-6 bg-slate-800/30 border-slate-700/50 hover:border-cyan-500/30 transition-all duration-300 group h-full">
-                      <h4 className="font-bold text-foreground group-hover:text-cyan-400 transition-colors mb-2 line-clamp-2">
+                    <Card className="p-6 bg-card/30 border-border/50 hover:border-primary/30 transition-all duration-300 group h-full">
+                      <h4 className="font-bold text-foreground group-hover:text-primary transition-colors mb-2 line-clamp-2">
                         {relatedPost.title}
                       </h4>
                       <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
                         {relatedPost.excerpt}
                       </p>
-                      <span className="text-cyan-400 text-sm flex items-center gap-1">
+                      <span className="text-primary text-sm flex items-center gap-1">
                         Read more
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </span>
