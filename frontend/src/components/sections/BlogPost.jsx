@@ -61,49 +61,107 @@ const BlogPost = () => {
     }
   };
 
-  // Mock content for the blog post
-  const mockContent = `
-## Introduction
+  // Render markdown-style content
+  const renderContent = (content) => {
+    if (!content) return null;
 
-Machine learning has revolutionized the way we approach complex problems, from image recognition to natural language processing. In this article, we'll dive deep into the mathematical foundations that make neural networks tick.
+    const lines = content.split('\n');
+    const elements = [];
+    let codeBlock = '';
+    let inCodeBlock = false;
+    let listItems = [];
+    let inList = false;
 
-## The Building Blocks
+    lines.forEach((line, index) => {
+      // Code blocks
+      if (line.trim().startsWith('```')) {
+        if (inCodeBlock) {
+          elements.push(
+            <Card key={`code-${index}`} className="p-4 bg-slate-900/50 border-slate-700 font-mono text-sm overflow-x-auto my-6">
+              <pre className="text-green-400">
+                <code>{codeBlock}</code>
+              </pre>
+            </Card>
+          );
+          codeBlock = '';
+          inCodeBlock = false;
+        } else {
+          inCodeBlock = true;
+        }
+        return;
+      }
 
-At its core, a neural network is a function approximator. Given enough neurons and layers, it can theoretically approximate any continuous function. This is known as the **Universal Approximation Theorem**.
+      if (inCodeBlock) {
+        codeBlock += line + '\n';
+        return;
+      }
 
-### Forward Propagation
+      // Close list if needed
+      if (inList && !line.trim().startsWith('-') && !line.trim().startsWith('|')) {
+        elements.push(
+          <ul key={`list-${index}`} className="list-disc list-inside space-y-2 my-4 text-muted-foreground">
+            {listItems.map((item, i) => <li key={i}>{item}</li>)}
+          </ul>
+        );
+        listItems = [];
+        inList = false;
+      }
 
-The forward pass computes the output of the network for a given input. For a single layer:
+      // Headers
+      if (line.startsWith('# ')) {
+        elements.push(<h1 key={index} className="text-4xl font-bold text-foreground mt-8 mb-4">{line.substring(2)}</h1>);
+      } else if (line.startsWith('## ')) {
+        elements.push(<h2 key={index} className="text-3xl font-bold text-foreground mt-8 mb-4">{line.substring(3)}</h2>);
+      } else if (line.startsWith('### ')) {
+        elements.push(<h3 key={index} className="text-2xl font-bold text-foreground mt-6 mb-3">{line.substring(4)}</h3>);
+      }
+      // Lists
+      else if (line.trim().startsWith('- ')) {
+        inList = true;
+        listItems.push(line.substring(line.indexOf('-') + 1).trim());
+      }
+      // Tables
+      else if (line.trim().startsWith('|')) {
+        // Simple table rendering - could be enhanced
+        elements.push(<div key={index} className="my-4 text-muted-foreground font-mono text-sm">{line}</div>);
+      }
+      // Blockquotes
+      else if (line.trim().startsWith('>')) {
+        elements.push(
+          <blockquote key={index} className="border-l-4 border-primary pl-4 my-4 italic text-muted-foreground">
+            {line.substring(line.indexOf('>') + 1).trim()}
+          </blockquote>
+        );
+      }
+      // Horizontal rules
+      else if (line.trim() === '---') {
+        elements.push(<hr key={index} className="border-slate-700 my-8" />);
+      }
+      // Regular paragraphs
+      else if (line.trim()) {
+        // Handle inline code, bold, italic
+        let processedLine = line
+          .replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-bold">$1</strong>')
+          .replace(/\*(.*?)\*/g, '<em>$1</em>')
+          .replace(/`(.*?)`/g, '<code class="bg-slate-800 px-2 py-1 rounded text-cyan-400 text-sm">$1</code>');
 
-\`\`\`python
-def forward(x, W, b):
-    return np.dot(W, x) + b
-\`\`\`
+        elements.push(
+          <p key={index} className="my-4 text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: processedLine }} />
+        );
+      }
+    });
 
-### Activation Functions
+    // Close any remaining list
+    if (inList && listItems.length > 0) {
+      elements.push(
+        <ul key="list-end" className="list-disc list-inside space-y-2 my-4 text-muted-foreground">
+          {listItems.map((item, i) => <li key={i}>{item}</li>)}
+        </ul>
+      );
+    }
 
-Activation functions introduce non-linearity into the network. Popular choices include:
-
-- **ReLU**: \`f(x) = max(0, x)\`
-- **Sigmoid**: \`f(x) = 1 / (1 + e^(-x))\`
-- **Tanh**: \`f(x) = (e^x - e^(-x)) / (e^x + e^(-x))\`
-
-## Backpropagation: The Magic Behind Learning
-
-Backpropagation is the algorithm that allows neural networks to learn from their mistakes. It computes gradients efficiently using the chain rule of calculus.
-
-### The Chain Rule
-
-For a composition of functions, the derivative is the product of individual derivatives:
-
-\`\`\`
-dL/dW = dL/dy * dy/dz * dz/dW
-\`\`\`
-
-## Conclusion
-
-Understanding the mathematics behind neural networks isn't just academic—it's essential for debugging models, designing architectures, and pushing the boundaries of what's possible in machine learning.
-  `;
+    return elements;
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -183,55 +241,9 @@ Understanding the mathematics behind neural networks isn't just academic—it's 
             transition={{ duration: 0.5, delay: 0.4 }}
             className="prose prose-invert prose-lg max-w-none"
           >
-            {/* Render mock content as styled paragraphs */}
-            <div className="space-y-6 text-muted-foreground leading-relaxed">
-              <p className="text-lg">{post.excerpt}</p>
-              
-              <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">Introduction</h2>
-              <p>
-                Machine learning has revolutionized the way we approach complex problems, from image recognition 
-                to natural language processing. In this article, we'll dive deep into the mathematical foundations 
-                that make neural networks tick.
-              </p>
-
-              <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">The Building Blocks</h2>
-              <p>
-                At its core, a neural network is a function approximator. Given enough neurons and layers, 
-                it can theoretically approximate any continuous function. This is known as the 
-                <span className="text-cyan-400"> Universal Approximation Theorem</span>.
-              </p>
-
-              {/* Code Block */}
-              <Card className="p-4 bg-background/80 border-border/50 font-mono text-sm overflow-x-auto my-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-3 h-3 rounded-full bg-red-500" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
-                  <span className="ml-2 text-muted-foreground text-xs">forward_pass.py</span>
-                </div>
-                <pre className="text-foreground">
-                  <code>{`def forward(x, W, b):
-    """Compute forward pass for a single layer"""
-    z = np.dot(W, x) + b
-    a = activation(z)
-    return a`}</code>
-                </pre>
-              </Card>
-
-              <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">Key Takeaways</h2>
-              <ul className="list-disc list-inside space-y-2">
-                <li>Neural networks are universal function approximators</li>
-                <li>Backpropagation enables efficient gradient computation</li>
-                <li>Activation functions introduce non-linearity</li>
-                <li>Understanding math helps debug and improve models</li>
-              </ul>
-
-              <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">Conclusion</h2>
-              <p>
-                Understanding the mathematics behind neural networks isn't just academic—it's essential for 
-                debugging models, designing architectures, and pushing the boundaries of what's possible in 
-                machine learning.
-              </p>
+            {/* Render actual blog content */}
+            <div className="space-y-2">
+              {post.content && renderContent(post.content)}
             </div>
           </motion.div>
 

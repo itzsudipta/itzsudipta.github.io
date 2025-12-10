@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon, Terminal } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
@@ -11,6 +11,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,11 +21,23 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (href) => {
+  const handleNavClick = (e, href) => {
     setIsMobileMenuOpen(false);
+
+    // Handle hash links (sections on home page)
     if (href.startsWith('/#')) {
+      e.preventDefault();
       const elementId = href.replace('/#', '');
-      if (location.pathname === '/') {
+
+      if (location.pathname !== '/') {
+        // Navigate to home page first, then scroll
+        navigate('/');
+        setTimeout(() => {
+          const element = document.getElementById(elementId);
+          element?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
+      // Already on home page, just scroll
         const element = document.getElementById(elementId);
         element?.scrollIntoView({ behavior: 'smooth' });
       }
@@ -37,8 +50,8 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-          ? 'bg-background/80 backdrop-blur-xl border-b border-primary/10 shadow-lg shadow-primary/5'
+          isScrolled || location.pathname !== '/'
+            ? 'bg-background/80 backdrop-blur-xl border-b border-primary/10 shadow-lg shadow-primary/5'
             : 'bg-transparent'
         }`}
       >
@@ -63,7 +76,7 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.href}
-                  onClick={() => handleNavClick(link.href)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
                 >
                   {link.name}
@@ -160,7 +173,7 @@ const Navbar = () => {
                   >
                     <Link
                       to={link.href}
-                      onClick={() => handleNavClick(link.href)}
+                      onClick={(e) => handleNavClick(e, link.href)}
                       className="block py-3 px-4 text-lg font-medium text-foreground hover:text-primary hover:bg-primary/10 rounded-lg transition-colors"
                     >
                       {link.name}
@@ -173,9 +186,15 @@ const Navbar = () => {
                   transition={{ delay: navLinks.length * 0.05 }}
                   className="mt-4"
                 >
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
-                    Download Resume
-                  </Button>
+                  <a
+                    href="/assets/documents/Sudipta_Sarkar_CV.pdf"
+                    download="Sudipta_Sarkar_CV.pdf"
+                    className="block"
+                  >
+                    <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+                      Download Resume
+                    </Button>
+                  </a>
                 </motion.div>
               </div>
             </motion.div>

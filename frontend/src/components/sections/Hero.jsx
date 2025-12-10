@@ -151,17 +151,20 @@ const Hero = () => {
               View My Work
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button
-                as="a"
+              <a
                 href="/assets/documents/Sudipta_Sarkar_CV.pdf"
                 download="Sudipta_Sarkar_CV.pdf"
-              variant="outline"
-              size="lg"
+                className="inline-flex"
+              >
+                <Button
+                  variant="outline"
+                  size="lg"
                 className="border-border hover:border-primary/50 hover:bg-primary/10 text-foreground px-8 w-full sm:w-auto"
-            >
-              <Download className="w-4 h-4 mr-2" />
-              Download Resume
-            </Button>
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Download Resume
+                </Button>
+              </a>
           </motion.div>
 
           {/* Social Links */}
