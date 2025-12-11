@@ -48,15 +48,27 @@ const TypewriterText = ({ texts, className }) => {
 
 const Hero = () => {
   const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById('projects');
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - offset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
   };
 
   const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById('contact');
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - offset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
   };
 
   return (
-    <section className="relative overflow-hidden pt-20 md:pt-24 pb-8 md:pb-12">
+    <section className="relative overflow-hidden pt-16 md:pt-20 pb-6 md:pb-8">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-background">
         {/* Gradient Orbs */}
@@ -73,8 +85,8 @@ const Hero = () => {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4 md:py-6 lg:py-8">
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-4 md:py-6 lg:py-8">
+        <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center">
           {/* Left Side - Text Content */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
           {/* Terminal-style greeting */}
@@ -82,11 +94,11 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-6"
+              className="mb-4 sm:mb-6"
           >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 border border-primary/20 backdrop-blur-sm">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-card/50 border border-primary/20 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-sm font-mono text-primary">Available for opportunities</span>
+                <span className="text-xs sm:text-sm font-mono text-primary whitespace-nowrap">Available for opportunities</span>
             </div>
           </motion.div>
 
@@ -95,17 +107,17 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mb-4"
+              className="mb-3 sm:mb-4"
           >
-              <span className="font-mono text-primary text-lg">{'> '}</span>
-              <span className="font-mono text-muted-foreground text-lg">Hello, I'm</span>
+              <span className="font-mono text-primary text-sm sm:text-base md:text-lg">{'> '}</span>
+              <span className="font-mono text-muted-foreground text-sm sm:text-base md:text-lg">Hello, I'm</span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+              className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6"
           >
             <span className="text-foreground">{personalInfo.name.split(' ')[0]} </span>
             <span className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-pink-400 bg-clip-text text-transparent">
@@ -118,10 +130,10 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-xl sm:text-2xl md:text-3xl text-muted-foreground mb-8 h-10"
+              className="text-base sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-6 sm:mb-8 h-8 sm:h-10"
           >
             <TypewriterText
-              texts={['ML Enthusiast', 'Backend Developer', 'Problem Solver', 'Student @ NIT Kolkata']}
+                texts={['ML & Web Enthu', 'Backend Explorer', 'Student @ NIT Kolkata']}
               className="font-medium"
             />
           </motion.div>
@@ -131,9 +143,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-lg text-muted-foreground max-w-2xl mb-10 leading-relaxed"
+              className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mb-8 sm:mb-10 leading-relaxed"
           >
-            {personalInfo.bio}
+              Architecting the convergence of Mathematical Theory and Backend Engineering. I transform experimental ML models into production-grade, scalable web systems. My focus: efficient algorithms, optimized data pipelines, and low-latency APIs.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -141,12 +153,12 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12 w-full sm:w-auto"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-12 w-full sm:w-auto"
           >
             <Button
               onClick={scrollToProjects}
               size="lg"
-                className="group bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 px-8 w-full sm:w-auto"
+                className="group bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 px-6 sm:px-8 w-full sm:w-auto text-sm sm:text-base"
             >
               View My Work
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -159,7 +171,7 @@ const Hero = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                className="border-border hover:border-primary/50 hover:bg-primary/10 text-foreground px-8 w-full sm:w-auto"
+                  className="border-border hover:border-primary/50 hover:bg-primary/10 text-foreground px-6 sm:px-8 w-full sm:w-auto text-sm sm:text-base"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Download Resume
@@ -208,7 +220,7 @@ const Hero = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-pink-500 to-cyan-500 rounded-full blur-2xl opacity-75 group-hover:opacity-100 animate-pulse" />
 
               {/* Outer Ring */}
-              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-cyan-500 via-pink-500 to-purple-500 p-1">
+              <div className="relative w-40 xs:w-48 sm:w-64 md:w-80 lg:w-96 h-40 xs:h-48 sm:h-64 md:h-80 lg:h-96 rounded-full bg-gradient-to-br from-cyan-500 via-pink-500 to-purple-500 p-1">
                 {/* Middle Ring */}
                 <div className="w-full h-full rounded-full bg-slate-900 p-2">
                   {/* Inner Ring */}
@@ -244,7 +256,15 @@ const Hero = () => {
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
             className="flex flex-col items-center gap-2 text-muted-foreground cursor-pointer"
-            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => {
+              const element = document.getElementById('about');
+              if (element) {
+                const offset = 80;
+                const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - offset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+              }
+            }}
           >
             <span className="text-xs uppercase tracking-widest">Scroll</span>
             <ChevronDown className="w-5 h-5" />
