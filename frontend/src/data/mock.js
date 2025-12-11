@@ -41,9 +41,7 @@ export const skills = {
     { name: "VS Code", level: 90 },
     { name: "Hugging Face", level: 70 },
     { name: "Vercel", level: 80 },
-    { name: "Colab", level: 85 },
-    { name: "Figma", level: 70 },
-    { name: "Canva", level: 75 }
+    { name: "Colab", level: 85 }
   ]
 };
 

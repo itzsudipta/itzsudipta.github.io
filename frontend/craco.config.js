@@ -105,6 +105,33 @@ if (config.enableVisualEdits || config.enableHealthCheck) {
       };
     }
 
+    // Fix WebSocket connection issues
+    devServerConfig.client = {
+      ...devServerConfig.client,
+      webSocketURL: {
+        hostname: 'localhost',
+        pathname: '/ws',
+        port: 3000,
+        protocol: 'ws',
+      },
+      logging: 'none', // Reduce console noise
+    };
+
+    return devServerConfig;
+  };
+} else {
+  // If no plugins are enabled, still add devServer config to fix WebSocket
+  webpackConfig.devServer = (devServerConfig) => {
+    devServerConfig.client = {
+      ...devServerConfig.client,
+      webSocketURL: {
+        hostname: 'localhost',
+        pathname: '/ws',
+        port: 3000,
+        protocol: 'ws',
+      },
+      logging: 'none',
+    };
     return devServerConfig;
   };
 }
