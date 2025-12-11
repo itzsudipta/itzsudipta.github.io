@@ -34,12 +34,22 @@ const Navbar = () => {
         navigate('/');
         setTimeout(() => {
           const element = document.getElementById(elementId);
-          element?.scrollIntoView({ behavior: 'smooth' });
+          if (element) {
+            const offset = 80; // navbar height
+            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - offset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+          }
         }, 100);
       } else {
       // Already on home page, just scroll
         const element = document.getElementById(elementId);
-        element?.scrollIntoView({ behavior: 'smooth' });
+        if (element) {
+          const offset = 80; // navbar height
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - offset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        }
       }
     }
   };
@@ -56,16 +66,16 @@ const Navbar = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
+          <div className="flex items-center justify-between h-16 md:h-20 gap-4">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 group">
+            <Link to="/" className="flex items-center gap-2 group flex-shrink-0">
               <div className="relative">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-pink-500 flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
-                  <Terminal className="w-5 h-5 text-white" />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-pink-500 flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                  <Terminal className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-pink-500 blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
               </div>
-              <span className="font-bold text-lg text-foreground hidden sm:block">
+              <span className="font-bold text-sm sm:text-base md:text-lg text-foreground whitespace-nowrap">
                 Sudipta<span className="text-primary">.</span>dev
               </span>
             </Link>
@@ -86,13 +96,13 @@ const Navbar = () => {
             </div>
 
             {/* Right Side Actions */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               {/* Theme Toggle */}
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="relative overflow-hidden group"
+                className="relative overflow-hidden group w-9 h-9 sm:w-10 sm:h-10"
               >
                 <AnimatePresence mode="wait">
                   {theme === 'dark' ? (
@@ -103,7 +113,7 @@ const Navbar = () => {
                       exit={{ rotate: 90, opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <Sun className="w-5 h-5 text-yellow-400" />
+                      <Sun className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" />
                     </motion.div>
                   ) : (
                     <motion.div
@@ -113,7 +123,7 @@ const Navbar = () => {
                       exit={{ rotate: -90, opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <Moon className="w-5 h-5 text-slate-700" />
+                        <Moon className="w-4 h-4 sm:w-5 sm:h-5 text-slate-700" />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -121,7 +131,7 @@ const Navbar = () => {
 
               {/* Resume Button */}
               <Button
-                className="hidden sm:flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300"
+                className="hidden sm:flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 text-sm"
               >
                 Resume
               </Button>
@@ -130,13 +140,13 @@ const Navbar = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden"
+                className="md:hidden w-9 h-9 sm:w-10 sm:h-10"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-5 h-5" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
                 ) : (
-                  <Menu className="w-5 h-5" />
+                    <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
                 )}
               </Button>
             </div>

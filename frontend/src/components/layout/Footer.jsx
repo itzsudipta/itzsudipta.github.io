@@ -19,19 +19,19 @@ const Footer = () => {
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none" />
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-flex items-center gap-2 group mb-3">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-400 to-pink-500 flex items-center justify-center">
-                <Terminal className="w-5 h-5 text-white" />
+            <Link to="/" className="inline-flex items-center gap-2 group mb-2">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-pink-500 flex items-center justify-center">
+                <Terminal className="w-4 h-4 text-white" />
               </div>
-              <span className="font-bold text-lg text-foreground">
+              <span className="font-bold text-base text-foreground">
                 Sudipta<span className="text-primary">.</span>dev
               </span>
             </Link>
-            <p className="text-muted-foreground max-w-md mb-4 leading-relaxed text-sm">
+            <p className="text-muted-foreground max-w-md mb-3 leading-relaxed text-sm">
               {personalInfo.shortBio} Based in {personalInfo.location}, building the future one line of code at a time.
             </p>
             <div className="flex items-center gap-2">
@@ -45,7 +45,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-9 h-9 rounded-lg bg-card/50 border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                    className="w-8 h-8 rounded-lg bg-card/50 border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
                   >
                     <Icon className="w-4 h-4" />
                   </motion.a>
@@ -56,7 +56,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Quick Links</h3>
+            <h3 className="text-white font-semibold mb-2 text-sm uppercase tracking-wider">Quick Links</h3>
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.name}>
@@ -74,11 +74,11 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Get in Touch</h3>
-            <ul className="space-y-2">
+            <h3 className="text-white font-semibold mb-2 text-sm uppercase tracking-wider">Get in Touch</h3>
+            <ul className="space-y-1.5">
               <li>
                 <a
-                  href={`mailto:${personalInfo.email}`}
+                  href={`mailto:${personalInfo.email}?subject=Hello Sudipta!&body=Hi Sudipta,%0D%0A%0D%0AI came across your portfolio and wanted to reach out.%0D%0A%0D%0A[Your message here]%0D%0A%0D%0ABest regards,`}
                   className="text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
                   {personalInfo.email}
@@ -91,7 +91,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 pt-5 border-t border-border">
+        <div className="mt-6 pt-4 border-t border-border">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-muted-foreground text-xs sm:text-sm flex items-center gap-1">
               © {currentYear} {personalInfo.name}. Built with
