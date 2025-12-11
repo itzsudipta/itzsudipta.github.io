@@ -6,7 +6,7 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
 
-const categories = ['All', 'Full-Stack', 'AI/ML', 'Frontend'];
+const categories = ['All', 'Full-Stack', 'AI/ML'];
 
 const projectGradients = {
   pixelcraft: 'from-cyan-500/20 via-blue-500/20 to-purple-500/20',
@@ -28,7 +28,7 @@ const Projects = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="projects" className="relative py-24 overflow-hidden">
+    <section id="projects" className="relative py-16 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/30 to-background" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
@@ -42,10 +42,6 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
-            <Folder className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Featured Work</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             My <span className="bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent">Projects</span>
           </h2>
@@ -117,16 +113,16 @@ const Projects = () => {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
-                        className="w-12 h-12 rounded-full bg-card flex items-center justify-center text-white hover:bg-card/80 transition-colors"
+                        className="w-12 h-12 rounded-full bg-foreground flex items-center justify-center text-background hover:bg-foreground/90 transition-colors"
                       >
                         <Github className="w-5 h-5" />
                       </motion.a>
                     </div>
                     {/* Featured Badge */}
-                    {project.featured && (
+                    {project.featured && project.image === 'gitrag' && (
                       <div className="absolute top-4 right-4">
-                        <Badge className="bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">
-                          <Star className="w-3 h-3 mr-1 fill-yellow-400" />
+                        <Badge className="bg-yellow-500/30 dark:bg-yellow-500/20 text-yellow-600 dark:text-yellow-400 border border-yellow-500/50 dark:border-yellow-500/30">
+                          <Star className="w-3 h-3 mr-1 fill-yellow-600 dark:fill-yellow-400" />
                           Featured
                         </Badge>
                       </div>
