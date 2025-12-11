@@ -23,10 +23,24 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+  const [emailError, setEmailError] = useState('');
+
+  const validateEmail = (email) => {
+    if (!email) {
+      return '';
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email) ? '' : 'Please enter a valid email address';
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+
+    // Validate email in real-time
+    if (name === 'email') {
+      setEmailError(validateEmail(value));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -74,15 +88,15 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-24 overflow-hidden">
+    <section id="contact" className="relative py-16 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-      
+
       {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
       <div className="absolute top-1/3 right-0 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl" />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -100,7 +114,7 @@ const Contact = () => {
             Let's <span className="bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent">Connect</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or just want to chat? I'm always open to discussing new opportunities and ideas.
+            My inbox is effectively an open endpoint. Whether it's a freelance gig, a collaboration, or just a hello world, send a request. I try to keep my response latency low and my uptime high.
           </p>
         </motion.div>
 
@@ -116,15 +130,14 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-4">Let's talk about everything!</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Whether you have a question, a project idea, or just want to say hello, feel free to reach out. 
-                I'm currently available for freelance work and collaborations.
+                Endpoint open for opportunities and hello worlds. Send a request—I keep my response latency low and uptime high.
               </p>
             </div>
 
             {/* Contact Cards */}
             <div className="space-y-4">
               <Card className="p-4 bg-card/30 border-border/50 hover:border-primary/30 transition-colors group">
-                <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-4">
+                <a href={`mailto:${personalInfo.email}?subject=Hello Sudipta!&body=Hi Sudipta,%0D%0A%0D%0AI came across your portfolio and wanted to reach out.%0D%0A%0D%0A[Your message here]%0D%0A%0D%0ABest regards,`} className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
@@ -190,9 +203,10 @@ const Contact = () => {
                     name="name"
                     type="text"
                     required
+                    autoComplete="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="John Doe"
+                    placeholder="Your Name"
                     className="bg-background/50 border-border focus:border-primary/50"
                   />
                 </div>
@@ -206,10 +220,14 @@ const Contact = () => {
                     name="email"
                     type="email"
                     required
+                    autoComplete="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="john@example.com"
-                    className="bg-background/50 border-border focus:border-primary/50"
+                    placeholder="Your Email"
+                    className={`bg-background/50 border-2 transition-colors focus-visible:ring-0 focus-visible:outline-none ${emailError && formData.email
+                      ? 'border-red-500 focus-visible:border-red-500'
+                      : 'border-border focus-visible:border-primary'
+                      }`}
                   />
                 </div>
 
@@ -231,8 +249,8 @@ const Contact = () => {
 
                 <Button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300"
+                  disabled={isSubmitting || emailError}
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
