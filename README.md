@@ -1,13 +1,13 @@
-```markdown
+
 # Sudipta Sarkar - Portfolio
 
-[![Live Demo](https://img.shields.io/badge/demo-online-success.svg)](https://sudipta.dev)
+[![Live](https://img.shields.io/badge/demo-online-success.svg)](https://iamsudiptasarkar.me)
 [![React](https://img.shields.io/badge/React-19.0.0-61dafb.svg)](https://reactjs.org/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Modern, responsive portfolio website built with React and FastAPI, featuring a clean design with dark/light theme support and smooth animations.
 
-**[View Live Demo](https://sudipta.dev)**
+**[Live ](https://iamsudiptasarkar.me)**
 
 ---
 
@@ -145,7 +145,7 @@ Add `REACT_APP_WEB3FORMS_ACCESS_KEY` in Vercel environment variables.
 
 **Sudipta Sarkar**
 
-- 🌐 Website: [sudipta.dev](https://sudipta.dev)
+- 🌐 Website: [iamsudiptasarkar.me](https://iamsudiptasarkar.me)
 - 📧 Email: [info.sudipta.nit@gmail.com](mailto:info.sudipta.nit@gmail.com)
 - 💼 LinkedIn: [infosudipta](https://www.linkedin.com/in/infosudipta/)
 - 🐙 GitHub: [@itzsudipta](https://github.com/itzsudipta)
