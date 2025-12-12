@@ -137,7 +137,7 @@ const Contact = () => {
             {/* Contact Cards */}
             <div className="space-y-4">
               <Card className="p-4 bg-card/30 border-border/50 hover:border-primary/30 transition-colors group">
-                <a href={`mailto:${personalInfo.email}?subject=Hello Sudipta!&body=Hi Sudipta,%0D%0A%0D%0AI came across your portfolio and wanted to reach out.%0D%0A%0D%0A[Your message here]%0D%0A%0D%0ABest regards,`} className="flex items-center gap-4">
+                <a href={`mailto:${personalInfo.email}?subject=Hello%20Sudipta%20-%20Let's%20Connect&body=Hi%20Sudipta,%0D%0A%0D%0AI%20found%20your%20portfolio%20at%20iamsudiptasarkar.me%20and%20would%20like%20to%20connect%20with%20you.%0D%0A%0D%0AName:%20%0D%0ACompany/Organization:%20%0D%0APurpose:%20%0D%0A%0D%0ALooking%20forward%20to%20hearing%20from%20you!%0D%0A%0D%0ABest%20regards`} className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                     <Mail className="w-5 h-5 text-primary" />
                   </div>

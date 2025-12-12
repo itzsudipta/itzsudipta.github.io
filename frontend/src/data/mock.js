@@ -14,7 +14,7 @@ export const socialLinks = [
   { name: "GitHub", url: "https://github.com/itzsudipta", icon: "Github" },
   { name: "LinkedIn", url: "https://www.linkedin.com/in/infosudipta/", icon: "Linkedin" },
   { name: "Twitter", url: "https://x.com/TheSudiptaVerse", icon: "Twitter" },
-  { name: "Email", url: "mailto:info.sudipta.nit@gmail.com", icon: "Mail" }
+  { name: "Email", url: "mailto:info.sudipta.nit@gmail.com?subject=Hello%20Sudipta%20-%20Let's%20Connect&body=Hi%20Sudipta,%0D%0A%0D%0AI%20found%20your%20portfolio%20at%20iamsudiptasarkar.me%20and%20would%20like%20to%20connect%20with%20you.%0D%0A%0D%0AName:%20%0D%0ACompany/Organization:%20%0D%0APurpose:%20%0D%0A%0D%0ALooking%20forward%20to%20hearing%20from%20you!%0D%0A%0D%0ABest%20regards", icon: "Mail" }
 ];
 
 export const skills = {
